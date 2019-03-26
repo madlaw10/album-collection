@@ -30,7 +30,7 @@ export default function Artists(artists) {
 
 
 
-   <!--unused sections <section class="add-albums">
+  <section class="add-albums">
     <input class= "add-album__albumTitle" type = "text" placeholder= "Album Title">
     <input class= "add-album__albumCover" type = "text" placeholder= "Album Image">
     <input class= "add-album__albumRating" type = "text" placeholder= "Album Rating">
@@ -44,6 +44,6 @@ export default function Artists(artists) {
     <input class= "add-song__duration" type = "text" placeholder= "Song Duration">
     <input class= "add-song__songRating" type = "text" placeholder= "Song Rating">
     <button class="add-song__submit">Submit</button>
-    </section>  -->
+    </section>
   `;
 }

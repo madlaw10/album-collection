@@ -1,6 +1,5 @@
 import '../css/styling.css'
 
-import modal from './utils/modal'
 import events from './utils/events/event-action'
 import api from './utils/api/api-action'
 import Artists from './components/Artists'
@@ -30,10 +29,7 @@ function main() {
      events.toggle(event.target.parentElement.parentElement.querySelector('.modal'))
     }
     if(event.target.classList.contains('modal')){
-      function toggle(element){
-        element.classList.toggle('hidden')
-       }
-       toggle(event.target)}
+       events.toggle(event.target)}
   })
 
   events.on(getAppContext(), 'click', ()=>{
