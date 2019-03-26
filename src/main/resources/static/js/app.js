@@ -27,10 +27,7 @@ function main() {
     
     /*TOGGLE MODAL*/
     if(event.target.classList.contains('grid-image')){
-      function toggle(element){
-       element.classList.toggle('hidden')
-      }
-      toggle(event.target.parentElement.parentElement.querySelector('.modal'))
+     events.toggle(event.target.parentElement.parentElement.querySelector('.modal'))
     }
     if(event.target.classList.contains('modal')){
       function toggle(element){
