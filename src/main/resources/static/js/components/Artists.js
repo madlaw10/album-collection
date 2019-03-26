@@ -2,13 +2,14 @@ import Albums from './Albums'
 
 export default function Artists(artists) {
     return `
-      <ul class="artists">
+      <ul class="artist grid-list">
         ${artists.map(artist => {
         return `
-                <li class="artist">
-                <div class="image-container">
-                <img class="artist__image" src="${artist.artistImage}" alt="Artist Image"></div>
-                <h3 class="artist__name">${artist.artistName}</h3>
+                <li class="grid-list--item">
+                  <div class="grid-item-container">
+                    <img class="grid-image" src="${artist.artistImage}" alt="Artist Image">
+                    <h3 class="item-name">${artist.artistName}</h3>
+                  </div>
                 <!--unused <ul class="albums">
                 ${Albums(artist.albums)}
                 </ul> -->

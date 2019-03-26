@@ -15,19 +15,32 @@ body{
 BODY
 -------------*/
 
-.artists {
-	list-style: none;
+.grid-list{
 	display: flex;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	list-style: none;
+	
 }
 
-.image-container{
+.grid-item-container{
+	display: flex;
+	align-content: center;
+	justify-content: center;
 	width: 200px;
 	height: 200px;
 	background-color: black;
+	margin:1.5rem;
 }
 
-.artist img{
+.grid-list--item img{
 	width: 200px;
 	height: auto;
 }
+
+.item-name{
+	color: #FFF;
+	text-shadow: 2px 2px #272727;
+	position: absolute;
+	margin: auto 0;
+}
+
