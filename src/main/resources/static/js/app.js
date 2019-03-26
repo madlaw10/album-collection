@@ -1,5 +1,6 @@
 import '../css/styling.css'
 
+import modal from './utils/modal'
 import events from './utils/events/event-action'
 import api from './utils/api/api-action'
 import Artists from './components/Artists'
@@ -11,7 +12,7 @@ function main() {
     console.log(artists)
     getAppContext().innerHTML = Artists(artists);
   })
-  events.on(getAppContext(), 'click', () => {
+  events.on(getAppContext(), 'click', ()=>{
     if(event.target.classList.contains('add-artist__submit')){
       const artistName = document.querySelector('.add-artist__artistName').value
       const artistImage = document.querySelector('.add-artist__artistImage').value
@@ -23,6 +24,19 @@ function main() {
         artistRating:artistRating
       }, (artists) => getAppContext().innerHTML= Artists(artists))
     }
+    
+    /*TOGGLE MODAL*/
+    if(event.target.classList.contains('grid-image')){
+      function toggle(element){
+       element.classList.toggle('hidden')
+      }
+      toggle(event.target.parentElement.parentElement.querySelector('.modal'))
+    }
+    if(event.target.classList.contains('modal')){
+      function toggle(element){
+        element.classList.toggle('hidden')
+       }
+       toggle(event.target)}
   })
 
   events.on(getAppContext(), 'click', ()=>{
@@ -57,6 +71,9 @@ function main() {
     }
   })
 }
+
+
+
 
 function getAppContext() {
   return document.querySelector("#app")

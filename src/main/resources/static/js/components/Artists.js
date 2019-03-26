@@ -2,18 +2,19 @@ import Albums from './Albums'
 
 export default function Artists(artists) {
     return `
-      <ul class="artist grid-list">
+      <ul id="artists" class="grid-list">
         ${artists.map(artist => {
         return `
-                <li class="grid-list--item">
+                <li id="artist" class="grid-list--item">
                   <div class="grid-item-container">
                     <img class="grid-image" src="${artist.artistImage}" alt="Artist Image">
                     <h3 class="item-name">${artist.artistName}</h3>
+                    </div>
+                  <div id ="album-modal" class="hidden modal">
+                    <div class="modal-content">${Albums(artist.albums)}
+                    </div>
                   </div>
-                <!--unused <ul class="albums">
-                ${Albums(artist.albums)}
-                </ul> -->
-                </li>
+                    </li>
             `;
     }).join('')}
     </ul>
@@ -23,6 +24,11 @@ export default function Artists(artists) {
     <input class= "add-artist__artistRating" type = "text" placeholder= "Artist Rating">
     <button class="add-artist__submit">Submit</button>
     </section>
+
+   
+
+
+
 
    <!--unused sections <section class="add-albums">
     <input class= "add-album__albumTitle" type = "text" placeholder= "Album Title">

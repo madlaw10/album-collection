@@ -44,3 +44,32 @@ BODY
 	margin: auto 0;
 }
 
+
+/*------------
+MODAL
+-------------*/
+
+.modal{
+	background-color: rgba(0,0,0,0.4);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5000;
+  
+  }
+  .modal-content{
+    animation-duration: 0.3s;
+    animation-name: modalopen;
+    background-color: #282a36;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1),
+    -5px -5px 15px rgba(0,0,0,0.1);
+    height: auto;
+    overflow: auto;
+    width: 96vw;
+  }
+
+.hidden{
+	display: none;
+}
