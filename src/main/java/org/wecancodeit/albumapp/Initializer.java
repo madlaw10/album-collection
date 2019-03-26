@@ -38,12 +38,16 @@ public class Initializer implements CommandLineRunner {
 		commentRepo.save(new SongComment("I cried my motherfucking eyes out", TestSong));
 	
 		artistRepo.save(new Artist("Bob Ross", "https://pbs.twimg.com/profile_images/1878105678/angryBobRoss_400x400.jpg", 5));
+		Artist artist1 = artistRepo.save(new Artist("John Cena", "http://bp1.blogger.com/_cX0plcHxeaM/R4JPYFkpJgI/AAAAAAAABg0/3HEdPEbfFJk/s400/P1050147.JPG", 5));
 		artistRepo.save(new Artist("Van Gogh", "https://www.thoughtco.com/thmb/P9Mhc4RYHi8dgK5sqDTCW5HhpK0=/400x400/filters:no_upscale():max_bytes(150000):strip_icc()/SueBond-13VanGoghSelfP-Stra-56a6e35b5f9b58b7d0e54bca.jpg", 1));
 		artistRepo.save(new Artist("GWAR", "https://pbs.twimg.com/profile_images/636793344513974272/FspNM2JA_400x400.jpg", 666));
 		artistRepo.save(new Artist("Jonas Brothers", "https://pbs.twimg.com/profile_images/1105726641895100416/ZIa6THm7_400x400.png", 3));
 		artistRepo.save(new Artist("BTS", "https://pbs.twimg.com/profile_images/1012002776954621955/7tnbbhbH_400x400.jpg", 10));
 		artistRepo.save(new Artist("LMFAO","https://www.hotnewhiphop.com/image/500x500/cover/1342213215_2d367a6dde08e07b7350ef4af2016661.jpg/8a9ca32b863478032c0decb6a76c2dca/1342213215_lmfao.jpg", 8));
 
+		Album TestAlbum1= albumRepo.save(new Album("Greatest Hits II", "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Cant_See_Me.jpg/220px-Cant_See_Me.jpg", 10,
+				artist1));
+		Song testSong1= songRepo.save(new Song("Basic Thuganomics", "4:01", 10, TestAlbum1));
 		
 	}
 
