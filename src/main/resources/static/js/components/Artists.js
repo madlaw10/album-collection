@@ -2,16 +2,30 @@ import Albums from './Albums'
 
 export default function Artists(artists) {
     return `
-      <ul class="artists">
+      <ul id="artists" class="grid-list">
         ${artists.map(artist => {
         return `
-                <li class="artist">
-                <div class="image-container">
-                <img class="artist__image" src="${artist.artistImage}" alt="Artist Image"></div>
-                <h3 class="artist__name">${artist.artistName}</h3>
-                <!--unused <ul class="albums">
-                ${Albums(artist.albums)}
-                </ul> -->
+                <li id="artist" class="grid-list--item">
+                  <div class="grid-item-container">
+                    <img class="grid-image" src="${artist.artistImage}" alt="Artist Image">
+                    <h3 class="item-name">${artist.artistName}</h3>
+                  </div>
+
+                  <div id ="album-modal" class="hidden modal">
+                    <div class="modal-content">
+                      <div class="modal-content--header">
+                        <img class="model--header-image" src="${artist.artistImage}" alt="Artist Image">
+                        <h2>${artist.artistName}</h2>
+                        <ul>
+                          <li>Artist Rating: ${artist.artistRating}/10</li>
+                          <li>Albums: ${artist.albums.length}</li>
+                          <li>Comments</li>
+                        </ul>
+                      </div>
+
+                      <div class="modal-content--body">${Albums(artist.albums)}</div>
+                    </div>
+                  </div>
                 </li>
             `;
     }).join('')}
@@ -23,7 +37,12 @@ export default function Artists(artists) {
     <button class="add-artist__submit">Submit</button>
     </section>
 
-   <!--unused sections <section class="add-albums">
+   
+
+
+
+
+  <section class="add-albums">
     <input class= "add-album__albumTitle" type = "text" placeholder= "Album Title">
     <input class= "add-album__albumCover" type = "text" placeholder= "Album Image">
     <input class= "add-album__albumRating" type = "text" placeholder= "Album Rating">
@@ -37,6 +56,6 @@ export default function Artists(artists) {
     <input class= "add-song__duration" type = "text" placeholder= "Song Duration">
     <input class= "add-song__songRating" type = "text" placeholder= "Song Rating">
     <button class="add-song__submit">Submit</button>
-    </section>  -->
+    </section>
   `;
 }
