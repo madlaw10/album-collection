@@ -14,7 +14,7 @@ export default function Albums(albums) {
                   </div>
 
 
-                  <div id ="album-modal" class="hidden modal">
+                  <div class="hidden modal album-modal">
                   <div class="modal-content">
                     <div class="modal-content--header">
                       <img class="model--header-image" src="${album.albumCover}" alt="Album Cover">
