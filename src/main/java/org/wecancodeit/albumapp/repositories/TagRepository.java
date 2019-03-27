@@ -6,5 +6,7 @@ import org.wecancodeit.albumapp.models.Tag;
 
 @Repository
 public interface TagRepository extends CrudRepository<Tag, Long> {
+
+	Tag findByTagName(String tagName);
 	
 }
