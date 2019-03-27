@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.wecancodeit.albumapp.models.Album;
 import org.wecancodeit.albumapp.models.Artist;
 import org.wecancodeit.albumapp.models.Song;
+import org.wecancodeit.albumapp.models.SongComment;
 import org.wecancodeit.albumapp.models.Tag;
 import org.wecancodeit.albumapp.repositories.AlbumRepository;
 import org.wecancodeit.albumapp.repositories.ArtistRepository;
+import org.wecancodeit.albumapp.repositories.CommentRepository;
 import org.wecancodeit.albumapp.repositories.SongRepository;
 import org.wecancodeit.albumapp.repositories.TagRepository;
 
@@ -32,6 +34,8 @@ public class SongController {
 	ArtistRepository artistRepo;
 	@Resource
 	TagRepository tagRepo;
+	@Resource
+	CommentRepository commentRepo;
 
 	@GetMapping("")
 	public Collection<Song> getSongs() {
@@ -49,6 +53,15 @@ public class SongController {
 		Album album = albumRepo.findByAlbumTitle(newSong.getString("album"));
 		Tag tag = tagRepo.findByTagName(newSong.getString("songTag"));
 		songRepo.save(new Song(songTitle, duration, songRating, album, tag));
+		return (Collection<Artist>) artistRepo.findAll();
+	}
+	
+	@PostMapping("/comments/add")
+	public Collection<Artist> addSongComment(@RequestBody String body) throws JSONException {
+		JSONObject newSongComment = new JSONObject(body);
+		String songCommentBody = newSongComment.getString("songCommentBody");
+		Song song = songRepo.findBySongTitle(newSongComment.getString("songCommentSong"));
+		commentRepo.save(new SongComment(songCommentBody, song));
 		return (Collection<Artist>) artistRepo.findAll();
 	}
 
