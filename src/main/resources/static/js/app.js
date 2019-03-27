@@ -33,15 +33,16 @@ function main() {
         tagTag: tagTag
       }, (artists) => getAppContext().innerHTML = Artists(artists))
     }
-  /*TOGGLE MODAL*/
-    if (event.target.classList.contains('grid-image')) {
+  /*TOGGLE ARTIST VIEW MODAL*/
+    if (event.target.classList.contains('btn-artist')) {
     events.toggle(event.target.parentElement.parentElement.querySelector('.modal'))
     }
     if (event.target.classList.contains('modal')) {
       events.toggle(event.target)
     }
   })
-
+  
+  
   /*ALBUM MODAL ACTIONS:*/
   /*ADD AN ALBUM*/
   events.on(getAppContext(), 'click', () => {
@@ -51,7 +52,7 @@ function main() {
       const albumRating = event.target.parentElement.querySelector('.add-album__albumRating').value
       const artist = event.target.parentElement.querySelector('.add-album__artist').value
       const albumTag = event.target.parentElement.querySelector('.add-album__tag').value
-
+      
       api.postRequest('/albums/add', {
         albumTitle: albumTitle,
         albumCover: albumCover,
@@ -60,7 +61,7 @@ function main() {
         albumTag: albumTag
       }, (artists) => getAppContext().innerHTML = Artists(artists))
     }
-    /*TOGGLE COMMENTS*/
+    /*TOGGLE ARTIST COMMENTS*/
     if (event.target.classList.contains('artistCommentOn')) {
       events.hide(event.target)
       events.display(event.target.parentElement.querySelector('.artistCommentOff'))
@@ -83,8 +84,31 @@ function main() {
         artistCommentArtist: artistCommentArtist,
       }, (artists) => getAppContext().innerHTML = Artists(artists))
     }
-  })
 
+    /*TOGGLE ALBUM VIEW MODAL*/
+    if (event.target.classList.contains('btn-album')) {
+      events.display(event.target.parentElement.parentElement.querySelector('.modal'))
+      }
+      if (event.target.classList.contains('album-modal')) {
+        events.hide(event.target)
+      }
+
+/*TOGGLE ALBUM COMMENTS*/
+if (event.target.classList.contains('albumCommentOn')) {
+  events.hide(event.target)
+  events.display(event.target.parentElement.querySelector('.albumCommentOff'))
+  events.display(event.target.parentElement.parentElement.parentElement.querySelector('.albumComments'))
+  events.hide(event.target.parentElement.parentElement.parentElement.querySelector('.songs'))
+}
+if (event.target.classList.contains('albumCommentOff')) {
+  events.hide(event.target)
+  events.display(event.target.parentElement.querySelector('.albumCommentOn'))
+  events.display(event.target.parentElement.parentElement.parentElement.querySelector('.songs'))
+  events.hide(event.target.parentElement.parentElement.parentElement.querySelector('.albumComments'))
+}
+
+    })
+  
   /*SONG DROP-DOWN ACTIONS:*/
   /*ADD A SONG*/
   events.on(getAppContext(), 'click', () => {
