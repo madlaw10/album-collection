@@ -1,12 +1,14 @@
 package org.wecancodeit.albumapp.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -29,16 +31,20 @@ public class Album {
 	private Collection<Song> songs;
 	@OneToMany(mappedBy = "album")
 	private Collection<AlbumComment> albumComments;
+	@ManyToMany
+	private Collection<Tag> tags;
 
 	public Album() {
 	}
 
-	public Album(String albumTitle, String albumCover, int albumRating, Artist artist) {
+	public Album(String albumTitle, String albumCover, int albumRating, Artist artist, Tag ...tags) {
 		this.albumTitle = albumTitle;
 		this.albumCover = albumCover;
 		this.albumRating = albumRating;
 		this.artist = artist;
+		this.tags = Arrays.asList(tags);
 		this.songs = new ArrayList<Song>();
+		this.albumComments = new ArrayList<AlbumComment>();
 	}
 
 	public Artist getArtist() {
@@ -67,6 +73,10 @@ public class Album {
 
 	public int getAlbumRating() {
 		return albumRating;
+	}
+
+	public Collection<Tag> getTags() {
+		return tags;
 	}
 
 	@Override

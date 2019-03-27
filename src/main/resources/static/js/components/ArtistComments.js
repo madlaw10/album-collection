@@ -11,7 +11,7 @@ export default function ArtistComments(artistComments) {
     </ul>
 
     <section class="add-artist-comment">
-    <input class= "add-artist-comment__comment" type = "textarea" placeholder= "Type your comment here.">
+    <input class= "add-artist-comment__comment" type = "text" placeholder= "Type your comment here.">
     <input class= "add-artist-comment__artist" type = "text" placeholder= "Artist Name">
     <button class="add-artist-comment__submit">Submit</button>
     </section>
