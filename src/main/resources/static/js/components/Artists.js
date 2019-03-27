@@ -1,4 +1,5 @@
 import Albums from './Albums'
+import ArtistComments from './ArtistComments'
 
 export default function Artists(artists) {
     return `
@@ -19,11 +20,12 @@ export default function Artists(artists) {
                         <ul>
                           <li>Artist Rating: ${artist.artistRating}/10</li>
                           <li>Albums: ${artist.albums.length}</li>
-                          <li>Comments</li>
+                          <li class="artistCommentOn">Comments</li>
+                          <li class="artistCommentOff hidden">Close Comments</li>
                         </ul>
                       </div>
-
-                      <div class="modal-content--body">${Albums(artist.albums)}</div>
+                      <div class="modal-content--body albums">${Albums(artist.albums)}</div>
+                      <div class="modal-content--body comments hidden">${ArtistComments(artist.artistComments)}</div>
                     </div>
                   </div>
                 </li>
