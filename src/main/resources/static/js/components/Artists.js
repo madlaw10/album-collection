@@ -1,4 +1,5 @@
 import Albums from './Albums'
+import ArtistComments from './ArtistComments'
 
 export default function Artists(artists) {
     return `
@@ -19,11 +20,12 @@ export default function Artists(artists) {
                         <ul>
                           <li>Artist Rating: ${artist.artistRating}/10</li>
                           <li>Albums: ${artist.albums.length}</li>
-                          <li>Comments</li>
+                          <li class="artistCommentOn">Comments</li>
+                          <li class="artistCommentOff hidden">Close Comments</li>
                         </ul>
                       </div>
-
-                      <div class="modal-content--body">${Albums(artist.albums)}</div>
+                      <div class="modal-content--body albums">${Albums(artist.albums)}</div>
+                      <div class="modal-content--body comments hidden">${ArtistComments(artist.artistComments)}</div>
                     </div>
                   </div>
                 </li>
@@ -35,19 +37,6 @@ export default function Artists(artists) {
     <input class= "add-artist__artistImage" type = "text" placeholder= "Artist Image">
     <input class= "add-artist__artistRating" type = "text" placeholder= "Artist Rating">
     <button class="add-artist__submit">Submit</button>
-    </section>
-
-   
-
-
-
-
-  <section class="add-albums">
-    <input class= "add-album__albumTitle" type = "text" placeholder= "Album Title">
-    <input class= "add-album__albumCover" type = "text" placeholder= "Album Image">
-    <input class= "add-album__albumRating" type = "text" placeholder= "Album Rating">
-    <input class= "add-album__artist" type = "text" placeholder= "Artist Name">
-    <button class="add-album__submit">Submit</button>
     </section>
 
     <section class="add-song">

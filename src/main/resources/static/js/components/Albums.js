@@ -18,5 +18,13 @@ export default function Albums(albums) {
             `;
     }).join('')}
     </ul>
+
+    <section class="add-albums">
+    <input class= "add-album__albumTitle" type = "text" placeholder= "Album Title">
+    <input class= "add-album__albumCover" type = "text" placeholder= "Album Image">
+    <input class= "add-album__albumRating" type = "text" placeholder= "Album Rating (out of 10)">
+    <input class= "add-album__artist" type = "text" placeholder= "Artist Name">
+    <button class="add-album__submit">Submit</button>
+    </section>
   `;
 }
