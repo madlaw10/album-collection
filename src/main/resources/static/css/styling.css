@@ -9,6 +9,7 @@ Global Styles
 
 body{
 	margin: 1rem;
+	background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 /*------------
@@ -25,10 +26,11 @@ BODY
 
 .grid-item-container{
 	display: grid;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	grid-template-columns: 200px;
 	grid-template-rows: 200px;
 	background-color: black;
-	margin:1.5rem;
+	margin:1.2rem;
 	height: 200px;
 	width: 200px;
 }
@@ -40,11 +42,12 @@ BODY
 	grid-row-end: -1; 
 	height: auto;
 	width: 200px;
+	z-index: 2;
 }
 
 .item-name{
 	background-color: rgba(0,0,0, 0.4);
-	padding-left: 0.3rem;
+	padding: 0.3rem;
 	width: 100%;
 	color: #FFF;
 	margin: auto 0;
@@ -52,9 +55,38 @@ BODY
 	grid-column-end: -1;
 	grid-row-start: 1;
 	grid-row-end: -1;
+	text-shadow: 2px 2px 5px #000;
+	z-index: 3;
+}
+
+.grid-item-container:hover{
+	cursor: pointer;
+	transition: 0.2s;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
+.slide{
+	animation-name: spin;
+	animation-duration: 1000ms;
+	animation-iteration-count: infinite;
+   	animation-timing-function: linear; 
 	z-index: 1;
 }
 
+.grid-item-container:hover .slide{
+	
+	margin-left: 1.3rem;
+	transition: 0.4s;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+	}
+}
 
 /*------------
 MODAL
@@ -62,7 +94,7 @@ MODAL
 
 
 .modal{/*background only*/
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0,0,0,0.6);
     height: 100%;
     left: 0;
     position: fixed;
@@ -74,11 +106,11 @@ MODAL
 .modal-content{
   	animation-duration: 0.3s;
   	animation-name: modalopen;
-  	background-color: #282a36;
-	box-shadow: 5px 5px 15px rgba(0,0,0,0.1),	
+	background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);	
+	box-shadow: 5px 5px 15px rgba(37, 37, 37, 0.1),	
 		-5px -5px 15px rgba(0,0,0,0.1);	
+	border: 1px solid rgb(223, 223, 223);
 	margin: 4% auto;	
-	padding: 2rem;
   	height: 80vh;
   	overflow: auto;
   	width: 80vw;
@@ -87,6 +119,34 @@ MODAL
 @keyframes modalopen{
   	from{opacity: 0}
   	to{opacity: 1}
+}
+
+.modal-content--header{
+	box-shadow: 0px 0px 18px 2px rgba(0,0,0,0.24);		
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 1rem;
+	background: rgb(131,58,180);
+	background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(255,149,0,1) 100%);
+	color: white;
+}
+
+.model--header-image{
+	justify-self: flex-start;
+	width: auto;
+	height: 100px;
+}
+
+.modal-content--header h2{
+	text-align: center;
+	font-size: 3rem;
+	text-shadow: 2px 3px 15px rgba(0,0,0,0.2), 0px -3px 35px rgba(255,255,255,0.2);
+	
+}
+
+.modal-content--body{
+	padding: 2rem;
 }
 
 .hidden{

@@ -9,12 +9,24 @@ export default function Artists(artists) {
                   <div class="grid-item-container">
                     <img class="grid-image" src="${artist.artistImage}" alt="Artist Image">
                     <h3 class="item-name">${artist.artistName}</h3>
-                    </div>
+                  </div>
+
                   <div id ="album-modal" class="hidden modal">
-                    <div class="modal-content">${Albums(artist.albums)}
+                    <div class="modal-content">
+                      <div class="modal-content--header">
+                        <img class="model--header-image" src="${artist.artistImage}" alt="Artist Image">
+                        <h2>${artist.artistName}</h2>
+                        <ul>
+                          <li>Artist Rating: ${artist.artistRating}/5</li>
+                          <li>Albums: ${artist.albums.length}</li>
+                          <li>Comments</li>
+                        </ul>
+                      </div>
+
+                      <div class="modal-content--body">${Albums(artist.albums)}</div>
                     </div>
                   </div>
-                    </li>
+                </li>
             `;
     }).join('')}
     </ul>

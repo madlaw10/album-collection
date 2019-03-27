@@ -9,6 +9,7 @@ export default function Albums(albums) {
                   <div class="grid-item-container">
                     <img class="grid-image" src="${album.albumCover}" alt="Album Cover">
                     <h3  class="item-name">${album.albumTitle}</h3>
+                    <img class="grid-image slide" src="../images/Record_Album_clip_art.svg">
                   </div>
                 <ul class="songs hidden">
                     ${Songs(album.songs)}
