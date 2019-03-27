@@ -17,7 +17,7 @@ export default function Artists(artists) {
                         <img class="model--header-image" src="${artist.artistImage}" alt="Artist Image">
                         <h2>${artist.artistName}</h2>
                         <ul>
-                          <li>Artist Rating: ${artist.artistRating}/5</li>
+                          <li>Artist Rating: ${artist.artistRating}/10</li>
                           <li>Albums: ${artist.albums.length}</li>
                           <li>Comments</li>
                         </ul>

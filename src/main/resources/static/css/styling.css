@@ -7,10 +7,41 @@ Global Styles
 	padding: 0;
 }
 
-body{
-	margin: 1rem;
-	background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+ul{
+	list-style: none;
 }
+
+body{
+	background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+	font-family: 'Nunito', sans-serif;
+}
+
+main{
+	margin: 1rem;
+}
+
+
+
+/*------------
+Header
+-------------*/
+
+header{
+	background: rgba(131,58,180, 1);
+	background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(255,149,0,1) 100%); 
+	height: 30vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h1{
+	color: white;
+	font-size: 4rem;
+	text-shadow: 2px 3px 15px rgba(0,0,0,0.2), 0px -3px 35px rgba(255,255,255,0.2);
+}
+
+
 
 /*------------
 BODY
@@ -25,11 +56,12 @@ BODY
 
 
 .grid-item-container{
+	border: 1px solid white;
 	display: grid;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	grid-template-columns: 200px;
 	grid-template-rows: 200px;
-	background-color: black;
+	background-color: white;
 	margin:1.2rem;
 	height: 200px;
 	width: 200px;
@@ -121,8 +153,7 @@ MODAL
   	to{opacity: 1}
 }
 
-.modal-content--header{
-	box-shadow: 0px 0px 18px 2px rgba(0,0,0,0.24);		
+.modal-content--header{		
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -149,6 +180,24 @@ MODAL
 	padding: 2rem;
 }
 
+
+
+/*------------
+FOOTER
+-------------*/
+footer{
+	align-items: flex-start;
+	background-color: black;
+	color: white;
+	display: flex;
+	flex-wrap: wrap;
+	padding:3rem;
+}
+footer>*{
+	margin-right: 5rem;
+}
+
 .hidden{
 	display: none;
 }
+
