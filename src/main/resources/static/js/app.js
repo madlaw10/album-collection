@@ -11,7 +11,7 @@ function main() {
     console.log(artists)
     getAppContext().innerHTML = Artists(artists);
   })
-  events.on(getAppContext(), 'click', () => {
+  events.on(getAppContext(), 'click', ()=>{
     if(event.target.classList.contains('add-artist__submit')){
       const artistName = document.querySelector('.add-artist__artistName').value
       const artistImage = document.querySelector('.add-artist__artistImage').value
@@ -23,6 +23,13 @@ function main() {
         artistRating:artistRating
       }, (artists) => getAppContext().innerHTML= Artists(artists))
     }
+    
+    /*TOGGLE MODAL*/
+    if(event.target.classList.contains('grid-image')){
+     events.toggle(event.target.parentElement.parentElement.querySelector('.modal'))
+    }
+    if(event.target.classList.contains('modal')){
+       events.toggle(event.target)}
   })
 
   events.on(getAppContext(), 'click', ()=>{
@@ -57,6 +64,9 @@ function main() {
     }
   })
 }
+
+
+
 
 function getAppContext() {
   return document.querySelector("#app")
