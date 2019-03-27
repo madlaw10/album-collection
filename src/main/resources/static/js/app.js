@@ -33,15 +33,16 @@ function main() {
         tagTag: tagTag
       }, (artists) => getAppContext().innerHTML = Artists(artists))
     }
-  /*TOGGLE MODAL*/
-    if (event.target.classList.contains('grid-image')) {
+  /*TOGGLE ARTIST VIEW MODAL*/
+    if (event.target.classList.contains('btn-artist')) {
     events.toggle(event.target.parentElement.parentElement.querySelector('.modal'))
     }
     if (event.target.classList.contains('modal')) {
       events.toggle(event.target)
     }
   })
-
+  
+  
   /*ALBUM MODAL ACTIONS:*/
   /*ADD AN ALBUM*/
   events.on(getAppContext(), 'click', () => {
@@ -51,7 +52,7 @@ function main() {
       const albumRating = event.target.parentElement.querySelector('.add-album__albumRating').value
       const artist = event.target.parentElement.querySelector('.add-album__artist').value
       const albumTag = event.target.parentElement.querySelector('.add-album__tag').value
-
+      
       api.postRequest('/albums/add', {
         albumTitle: albumTitle,
         albumCover: albumCover,
@@ -83,8 +84,14 @@ function main() {
         artistCommentArtist: artistCommentArtist,
       }, (artists) => getAppContext().innerHTML = Artists(artists))
     }
-  })
 
+    /*TOGGLE ALBUM VIEW MODAL*/
+    if (event.target.classList.contains('btn-album')) {
+      
+
+    }
+  })
+  
   /*SONG DROP-DOWN ACTIONS:*/
   /*ADD A SONG*/
   events.on(getAppContext(), 'click', () => {

@@ -8,11 +8,11 @@ export default function Artists(artists) {
         return `
                 <li id="artist" class="grid-list--item">
                   <div class="grid-item-container">
-                    <img class="grid-image" src="${artist.artistImage}" alt="Artist Image">
+                    <img class="grid-image btn-artist" src="${artist.artistImage}" alt="Artist Image">
                     <h3 class="item-name">${artist.artistName}</h3>
                   </div>
 
-                  <div id ="album-modal" class="hidden modal">
+                  <div id ="artist-modal" class="hidden modal">
                     <div class="modal-content">
                       <div class="modal-content--header">
                         <img class="model--header-image" src="${artist.artistImage}" alt="Artist Image">
