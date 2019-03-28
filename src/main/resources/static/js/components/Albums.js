@@ -1,5 +1,6 @@
 import Songs from './Songs'
 import AlbumComments from './AlbumComments'
+import Tags from './Tags'
 
 export default function Albums(albums) {
     return `
@@ -24,6 +25,7 @@ export default function Albums(albums) {
                       <ul>
                         <li>Artist Rating: ${album.albumRating}/10</li>
                         <li>Songs: ${album.songs.length}</li>
+                        <li>${Tags(album.tags)}</li> 
                         <li class="albumCommentOn">Album Comments</li>
                         <li class="albumCommentOff hidden">Close Album Comments</li>
                       </ul>
