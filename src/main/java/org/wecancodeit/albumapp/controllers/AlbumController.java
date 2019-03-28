@@ -45,7 +45,8 @@ public class AlbumController {
 	String albumTitle = newAlbum.getString("albumTitle");
 	String albumCover = newAlbum.getString("albumCover");
 	int albumRating = Integer.parseInt(newAlbum.getString("albumRating"));
-	Artist artist = artistRepo.findByArtistName(newAlbum.getString("artist"));
+	Artist artist = artistRepo.findById(Long.parseLong(newAlbum.getString("artist"))).get();
+	//Artist artist = artistRepo.findByArtistName(newAlbum.getString("artist"));
 	Tag tag = tagRepo.findByTagName(newAlbum.getString("albumTag"));
 	albumRepo.save(new Album (albumTitle, albumCover, albumRating, artist, tag));
 		return (Collection<Artist>)artistRepo.findAll();

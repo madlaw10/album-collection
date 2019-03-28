@@ -19,13 +19,6 @@ export default function Songs(songs) {
             }).join('')}
         </ol>
         
-        <section class="add-song">
-        <input class= "add-song__songTitle" type = "text" placeholder= "Song name">
-        <input class= "add-song__album" type = "text" placeholder= "Album Name">
-        <input class= "add-song__duration" type = "text" placeholder= "Song Duration">
-        <input class= "add-song__songRating" type = "text" placeholder= "Song Rating">
-        <input class= "add-song__tag" type = "text" placeholder= "Tag">
-        <button class="add-song__submit">Submit</button>
-        </section>
+       
         
         `}   
