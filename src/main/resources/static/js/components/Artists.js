@@ -1,4 +1,5 @@
 import Albums from './Albums'
+import ArtistComments from './ArtistComments'
 
 export default function Artists(artists) {
     return `
@@ -7,11 +8,11 @@ export default function Artists(artists) {
         return `
                 <li id="artist" class="grid-list--item">
                   <div class="grid-item-container">
-                    <img class="grid-image" src="${artist.artistImage}" alt="Artist Image">
+                    <img class="grid-image btn-artist" src="${artist.artistImage}" alt="Artist Image">
                     <h3 class="item-name">${artist.artistName}</h3>
                   </div>
 
-                  <div id ="album-modal" class="hidden modal">
+                  <div id ="artist-modal" class="hidden modal">
                     <div class="modal-content">
                       <div class="modal-content--header">
                         <img class="model--header-image" src="${artist.artistImage}" alt="Artist Image">
@@ -19,11 +20,12 @@ export default function Artists(artists) {
                         <ul>
                           <li>Artist Rating: ${artist.artistRating}/10</li>
                           <li>Albums: ${artist.albums.length}</li>
-                          <li>Comments</li>
+                          <li class="artistCommentOn">Comments</li>
+                          <li class="artistCommentOff hidden">Close Comments</li>
                         </ul>
                       </div>
-
-                      <div class="modal-content--body">${Albums(artist.albums)}</div>
+                      <div class="modal-content--body albums">${Albums(artist.albums)}</div>
+                      <div class="modal-content--body comments hidden">${ArtistComments(artist.artistComments)}</div>
                     </div>
                   </div>
                 </li>
@@ -34,20 +36,13 @@ export default function Artists(artists) {
     <input class= "add-artist__artistName" type = "text" placeholder= "Artist Name">
     <input class= "add-artist__artistImage" type = "text" placeholder= "Artist Image">
     <input class= "add-artist__artistRating" type = "text" placeholder= "Artist Rating">
+    <input class= "add-artist__tag" type = "text" placeholder= "Add a Tag">
     <button class="add-artist__submit">Submit</button>
     </section>
 
-   
-
-
-
-
-  <section class="add-albums">
-    <input class= "add-album__albumTitle" type = "text" placeholder= "Album Title">
-    <input class= "add-album__albumCover" type = "text" placeholder= "Album Image">
-    <input class= "add-album__albumRating" type = "text" placeholder= "Album Rating">
-    <input class= "add-album__artist" type = "text" placeholder= "Artist Name">
-    <button class="add-album__submit">Submit</button>
+    <section class="add-tag">
+    <input class= "add-tag__tag" type = "text" placeholder= "Add a New Tag">
+    <button class="add-tag__submit">Submit</button>
     </section>
 
     <section class="add-song">
@@ -55,6 +50,7 @@ export default function Artists(artists) {
     <input class= "add-song__album" type = "text" placeholder= "Album Name">
     <input class= "add-song__duration" type = "text" placeholder= "Song Duration">
     <input class= "add-song__songRating" type = "text" placeholder= "Song Rating">
+    <input class= "add-song__tag" type = "text" placeholder= "Tag">
     <button class="add-song__submit">Submit</button>
     </section>
   `;

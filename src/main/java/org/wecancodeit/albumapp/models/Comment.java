@@ -3,13 +3,14 @@ package org.wecancodeit.albumapp.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public abstract class Comment {
 	@Id
 	@GeneratedValue
 	private Long commentId;
-
+	@Lob
 	private String commentContent;
 
 	public Comment() {

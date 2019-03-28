@@ -14,39 +14,55 @@ import org.springframework.web.bind.annotation.RestController;
 import org.wecancodeit.albumapp.models.Album;
 import org.wecancodeit.albumapp.models.Artist;
 import org.wecancodeit.albumapp.models.Song;
+import org.wecancodeit.albumapp.models.SongComment;
+import org.wecancodeit.albumapp.models.Tag;
 import org.wecancodeit.albumapp.repositories.AlbumRepository;
 import org.wecancodeit.albumapp.repositories.ArtistRepository;
+import org.wecancodeit.albumapp.repositories.CommentRepository;
 import org.wecancodeit.albumapp.repositories.SongRepository;
+import org.wecancodeit.albumapp.repositories.TagRepository;
 
 @RestController
 @RequestMapping("/songs")
 public class SongController {
 
-@Resource
-SongRepository songRepo;
+	@Resource
+	SongRepository songRepo;
+	@Resource
+	AlbumRepository albumRepo;
+	@Resource
+	ArtistRepository artistRepo;
+	@Resource
+	TagRepository tagRepo;
+	@Resource
+	CommentRepository commentRepo;
 
-@Resource
-AlbumRepository	albumRepo;
+	@GetMapping("")
+	public Collection<Song> getSongs() {
+		return (Collection<Song>) songRepo.findAll();
 
-@Resource
-ArtistRepository	artistRepo;
+	}
 
-@GetMapping("")
-public Collection<Song>getSongs() {
-	return (Collection<Song>)songRepo.findAll();
+	@PostMapping("/add")
+	public Collection<Artist> addSong(@RequestBody String body) throws JSONException {
+
+		JSONObject newSong = new JSONObject(body);
+		String songTitle = newSong.getString("songTitle");
+		String duration = newSong.getString("duration");
+		int songRating = Integer.parseInt(newSong.getString("songRating"));
+		Album album = albumRepo.findByAlbumTitle(newSong.getString("album"));
+		Tag tag = tagRepo.findByTagName(newSong.getString("songTag"));
+		songRepo.save(new Song(songTitle, duration, songRating, album, tag));
+		return (Collection<Artist>) artistRepo.findAll();
+	}
 	
-}
-
-@PostMapping("/add")
-public Collection<Artist>addSong(@RequestBody String body) throws JSONException {
-	
-	JSONObject newSong = new JSONObject(body);
-String songTitle = newSong.getString("songTitle");
-String duration = newSong.getString("duration");
-int songRating = Integer.parseInt(newSong.getString("songRating"));
-Album album = albumRepo.findByAlbumTitle(newSong.getString("album"));
-songRepo.save(new Song (songTitle, duration, songRating, album));
-	return (Collection<Artist>)artistRepo.findAll();
-}
+	@PostMapping("/comments/add")
+	public Collection<Artist> addSongComment(@RequestBody String body) throws JSONException {
+		JSONObject newSongComment = new JSONObject(body);
+		String songCommentBody = newSongComment.getString("songCommentBody");
+		Song song = songRepo.findBySongTitle(newSongComment.getString("songCommentSong"));
+		commentRepo.save(new SongComment(songCommentBody, song));
+		return (Collection<Artist>) artistRepo.findAll();
+	}
 
 }
