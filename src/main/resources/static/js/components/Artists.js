@@ -24,6 +24,16 @@ export default function Artists(artists) {
                           <li class="artistCommentOff hidden">Close Comments</li>
                         </ul>
                       </div>
+
+                      <section class="add-album subheader">
+                      <input class= "add-album__albumTitle" type = "text" placeholder= "Album Title">
+                      <input class= "add-album__albumCover" type = "text" placeholder= "Album Image">
+                      <input class= "add-album__albumRating" type = "text" placeholder= "Album Rating (out of 10)">
+                      <input class= "add-album__artist" type = "text" placeholder= "Artist Name">
+                      <input class= "add-album__tag" type = "text" placeholder= "Tag">
+                      <button class="add-album__submit">Add Album</button>
+                      </section>
+
                       <div class="modal-content--body albums">${Albums(artist.albums)}</div>
                       <div class="modal-content--body comments hidden">${ArtistComments(artist.artistComments)}</div>
                     </div>
@@ -32,26 +42,8 @@ export default function Artists(artists) {
             `;
     }).join('')}
     </ul>
-    <section class="add-artist">
-    <input class= "add-artist__artistName" type = "text" placeholder= "Artist Name">
-    <input class= "add-artist__artistImage" type = "text" placeholder= "Artist Image">
-    <input class= "add-artist__artistRating" type = "text" placeholder= "Artist Rating">
-    <input class= "add-artist__tag" type = "text" placeholder= "Add a Tag">
-    <button class="add-artist__submit">Submit</button>
-    </section>
+    
 
-    <section class="add-tag">
-    <input class= "add-tag__tag" type = "text" placeholder= "Add a New Tag">
-    <button class="add-tag__submit">Submit</button>
-    </section>
-
-    <section class="add-song">
-    <input class= "add-song__songTitle" type = "text" placeholder= "Song name">
-    <input class= "add-song__album" type = "text" placeholder= "Album Name">
-    <input class= "add-song__duration" type = "text" placeholder= "Song Duration">
-    <input class= "add-song__songRating" type = "text" placeholder= "Song Rating">
-    <input class= "add-song__tag" type = "text" placeholder= "Tag">
-    <button class="add-song__submit">Submit</button>
-    </section>
+   
   `;
 }
