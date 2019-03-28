@@ -30,7 +30,25 @@ export default function Albums(albums) {
                         <li class="albumCommentOff hidden">Close Album Comments</li>
                       </ul>
                     </div>
-                    <div class="modal-content--body songs">${Songs(album.songs)}</div>
+                    <div class="modal-content--body songs">${Songs(album.songs)}
+                          <section class="add-song">
+                          <input class= "add-song__songTitle" type = "text" placeholder= "Song name">
+                          <input class= "add-song__album hidden" type = "text" placeholder= "Album Name" value= "${album.albumId}">
+                          <input class= "add-song__duration" type = "text" placeholder= "Song Duration">
+                          <input class= "add-song__songRating" type = "text" placeholder= "Song Rating">
+                          <input class= "add-song__tag" type= "text" placeholder= "Select Tag">
+                                
+                           
+                         
+                          <button class="add-song__submit">Submit</button>
+                          </section>
+                    
+                    
+                    
+                    
+                    
+                    
+                    </div>
                     <div class="modal-content--body albumComments hidden">${AlbumComments(album.albumComments)}</div>
                   </div>
                 </div>

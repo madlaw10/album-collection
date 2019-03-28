@@ -50,7 +50,8 @@ public class SongController {
 		String songTitle = newSong.getString("songTitle");
 		String duration = newSong.getString("duration");
 		int songRating = Integer.parseInt(newSong.getString("songRating"));
-		Album album = albumRepo.findByAlbumTitle(newSong.getString("album"));
+		Album album = albumRepo.findById(Long.parseLong(newSong.getString("album"))).get();
+		//Album album = albumRepo.findByAlbumTitle(newSong.getString("album"));
 		Tag tag = tagRepo.findByTagName(newSong.getString("songTag"));
 		songRepo.save(new Song(songTitle, duration, songRating, album, tag));
 		return (Collection<Artist>) artistRepo.findAll();
