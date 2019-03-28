@@ -4,7 +4,7 @@ export default function SongComments(songComments) {
         ${songComments.map(songComment => {
         return `
             <li id="songComment">
-                <h3  class="song-comment">${songComment.commentContent}</h3>
+                <p class="song-comment">${songComment.commentContent}</p>
             </li>
         `;
     }).join('')}
