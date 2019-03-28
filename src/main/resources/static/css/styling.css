@@ -41,6 +41,38 @@ h1{
 	text-shadow: 2px 3px 15px rgba(0,0,0,0.2), 0px -3px 35px rgba(255,255,255,0.2);
 }
 
+.subheader{
+	background-color:black;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	color: white;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	height: auto;
+	width: 100%;
+}
+.subheader__buttons>*{
+	margin: 0.5rem 1rem;
+}
+
+.subheader button{
+	background: none;
+	font-size: 1rem;
+	font-weight: 800;
+	color: white;
+	border: none;
+	height: 100%;
+	margin-left: 1rem;
+
+}
+
+.subheader button:hover{
+	background: none;
+	color: red;
+	text-decoration: underline; 
+}
 
 
 /*------------
@@ -196,6 +228,21 @@ footer{
 footer>*{
 	margin-right: 5rem;
 }
+
+/*------------
+INPUTS
+-------------*/
+input{
+	background-color: rgba(255, 255, 255, 0.3);
+	padding: 1rem;
+	border: 1px solid white;
+
+}
+
+
+
+
+
 
 .hidden{
 	display: none;

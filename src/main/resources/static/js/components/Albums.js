@@ -1,8 +1,11 @@
 import Songs from './Songs'
 import AlbumComments from './AlbumComments'
+import Tags from './Tags'
 
 export default function Albums(albums) {
     return `
+
+
       <ul id="albums" class="grid-list">
         ${albums.map(album => {
         return `
@@ -22,11 +25,30 @@ export default function Albums(albums) {
                       <ul>
                         <li>Artist Rating: ${album.albumRating}/10</li>
                         <li>Songs: ${album.songs.length}</li>
+                        <li>${Tags(album.tags)}</li> 
                         <li class="albumCommentOn">Album Comments</li>
                         <li class="albumCommentOff hidden">Close Album Comments</li>
                       </ul>
                     </div>
-                    <div class="modal-content--body songs">${Songs(album.songs)}</div>
+                    <div class="modal-content--body songs">${Songs(album.songs)}
+                          <section class="add-song">
+                          <input class= "add-song__songTitle" type = "text" placeholder= "Song name">
+                          <input class= "add-song__album hidden" type = "text" placeholder= "Album Name" value= "${album.albumId}">
+                          <input class= "add-song__duration" type = "text" placeholder= "Song Duration">
+                          <input class= "add-song__songRating" type = "text" placeholder= "Song Rating">
+                          <input class= "add-song__tag" type= "text" placeholder= "Select Tag">
+                                
+                           
+                         
+                          <button class="add-song__submit">Submit</button>
+                          </section>
+                    
+                    
+                    
+                    
+                    
+                    
+                    </div>
                     <div class="modal-content--body albumComments hidden">${AlbumComments(album.albumComments)}</div>
                   </div>
                 </div>
@@ -37,13 +59,5 @@ export default function Albums(albums) {
     }).join('')}
     </ul>
 
-    <section class="add-album">
-    <input class= "add-album__albumTitle" type = "text" placeholder= "Album Title">
-    <input class= "add-album__albumCover" type = "text" placeholder= "Album Image">
-    <input class= "add-album__albumRating" type = "text" placeholder= "Album Rating (out of 10)">
-    <input class= "add-album__artist" type = "text" placeholder= "Artist Name">
-    <input class= "add-album__tag" type = "text" placeholder= "Tag">
-    <button class="add-album__submit">Submit</button>
-    </section>
   `;
 }

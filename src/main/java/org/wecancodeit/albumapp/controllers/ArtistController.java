@@ -1,6 +1,7 @@
 package org.wecancodeit.albumapp.controllers;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import javax.annotation.Resource;
 
@@ -51,7 +52,8 @@ public class ArtistController {
 	public Collection<Artist> addArtistComment(@RequestBody String body) throws JSONException {
 		JSONObject newArtistComment = new JSONObject(body);
 		String artistCommentBody = newArtistComment.getString("artistCommentBody");
-		Artist artist = artistRepo.findByArtistName(newArtistComment.getString("artistCommentArtist"));
+		//Artist artist = artistRepo.findByArtistName(newArtistComment.getString("artistCommentArtist"));
+		Artist artist = artistRepo.findById(Long.parseLong(newArtistComment.getString("artistCommentArtist"))).get();
 		commentRepo.save(new ArtistComment(artistCommentBody, artist));
 		return (Collection<Artist>) artistRepo.findAll();
 	}
