@@ -107,6 +107,17 @@ if (event.target.classList.contains('albumCommentOff')) {
   events.hide(event.target.parentElement.parentElement.parentElement.querySelector('.albumComments'))
 }
 
+/*ADD AN ALBUM COMMENT*/
+if (event.target.classList.contains('add-album-comment__submit')) {
+  const albumCommentBody = event.target.parentElement.querySelector('.add-album-comment__comment').value
+  const albumCommentAlbum = event.target.parentElement.querySelector('.add-album-comment__album').value
+  
+  api.postRequest('/albums/comments/add', {
+    albumCommentBody: albumCommentBody,
+    albumCommentAlbum: albumCommentAlbum,
+  }, (artists) => getAppContext().innerHTML = Artists(artists))
+}
+
     })
   
   /*SONG DROP-DOWN ACTIONS:*/
@@ -127,6 +138,17 @@ if (event.target.classList.contains('albumCommentOff')) {
         songTag: songTag
       }, (artists) => getAppContext().innerHTML = Artists(artists))
     }
+
+    /*ADD A SONG COMMENT*/
+if (event.target.classList.contains('add-song-comment__submit')) {
+  const songCommentBody = event.target.parentElement.querySelector('.add-song-comment__comment').value
+  const songCommentSong = event.target.parentElement.querySelector('.add-song-comment__song').value
+  
+  api.postRequest('/songs/comments/add', {
+    songCommentBody: songCommentBody,
+    songCommentSong: songCommentSong,
+  }, (artists) => getAppContext().innerHTML = Artists(artists))
+}
   })
 }
 

@@ -1,12 +1,17 @@
+import SongComments from './SongComments'
+
 export default function Songs(songs) {
     return `
-        <ul id="songs" class="grid-list">
+        <ol id="songs">
             ${songs.map(song => {
                 return `
                     <li class="song">
-                        <h5 class="song__title">${song.songTitle}</h5>
+                        <h3 class="song__title">${song.songTitle}</h3>
+                            <div>
+                            ${SongComments(song.songComments)}
+                            </div>
                     </li>
                 `;
             }).join('')}
-        </ul>
+        </ol>
         `}   
