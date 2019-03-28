@@ -31,6 +31,7 @@ public class Artist {
 	public Artist() {}
 	
 	public Artist(String artistName, String artistImage, int artistRating, Tag ...tags) {
+		
 		this.artistName = artistName;
 		this.artistImage = artistImage;
 		this.artistRating = artistRating;

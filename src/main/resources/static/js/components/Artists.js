@@ -2,6 +2,7 @@ import Albums from './Albums'
 import Tags from './Tags'
 import ArtistComments from './ArtistComments'
 
+
 export default function Artists(artists) {
     return `
       <ul id="artists" class="grid-list">
@@ -37,7 +38,14 @@ export default function Artists(artists) {
                       </section>
 
                       <div class="modal-content--body albums">${Albums(artist.albums)}</div>
-                      <div class="modal-content--body comments hidden">${ArtistComments(artist.artistComments)}</div>
+                      <div class="modal-content--body comments hidden">${ArtistComments(artist.artistComments)}
+                               <section class="add-artist-comment">
+                               <input class= "add-artist-comment__comment" type = "text" placeholder= "Type your comment here.">
+                               <input class= "hidden add-artist-comment__artist" type = "text" placeholder= "Artist Name" value="${artist.artistId}">  
+                              
+                              <button class="add-artist-comment__submit">Submit</button>
+
+                      </div>
                     </div>
                   </div>
                 </li>
