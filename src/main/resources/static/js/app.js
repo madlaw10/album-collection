@@ -139,6 +139,12 @@ if (event.target.classList.contains('add-album-comment__submit')) {
       }, (artists) => getAppContext().innerHTML = Artists(artists))
     }
 
+    /*TOGGLE SONG COMMENTS*/
+    if (event.target.classList.contains('song__title')) {
+      events.toggle(event.target.parentElement.querySelector('.song__comment_list'))
+      
+    }
+
     /*ADD A SONG COMMENT*/
 if (event.target.classList.contains('add-song-comment__submit')) {
   const songCommentBody = event.target.parentElement.querySelector('.add-song-comment__comment').value

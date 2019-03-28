@@ -1,8 +1,11 @@
 import Songs from './Songs'
 import AlbumComments from './AlbumComments'
+import Tags from './Tags'
 
 export default function Albums(albums) {
     return `
+
+
       <ul id="albums" class="grid-list">
         ${albums.map(album => {
         return `
@@ -22,6 +25,7 @@ export default function Albums(albums) {
                       <ul>
                         <li>Artist Rating: ${album.albumRating}/10</li>
                         <li>Songs: ${album.songs.length}</li>
+                        <li>${Tags(album.tags)}</li> 
                         <li class="albumCommentOn">Album Comments</li>
                         <li class="albumCommentOff hidden">Close Album Comments</li>
                       </ul>
@@ -37,13 +41,5 @@ export default function Albums(albums) {
     }).join('')}
     </ul>
 
-    <section class="add-album">
-    <input class= "add-album__albumTitle" type = "text" placeholder= "Album Title">
-    <input class= "add-album__albumCover" type = "text" placeholder= "Album Image">
-    <input class= "add-album__albumRating" type = "text" placeholder= "Album Rating (out of 10)">
-    <input class= "add-album__artist" type = "text" placeholder= "Artist Name">
-    <input class= "add-album__tag" type = "text" placeholder= "Tag">
-    <button class="add-album__submit">Submit</button>
-    </section>
   `;
 }
